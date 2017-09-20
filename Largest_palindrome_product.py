@@ -17,4 +17,4 @@ def largest_palindrome_product(val):
     print num
 
 
-largest_palindrome_product(800000)
+largest_palindrome_product(1000000)
