@@ -2,31 +2,28 @@
 //
 // Find the sum of all the primes below two million.
 
-(function primesSum() {
-  var maxPrimeValue = 2e+6;
-  var i = 2;
+function primesSum() {
+  const maxPrimeValue = 2e+6;
   var sum = 0;
 
-  while(i <= maxPrimeValue) {
-    if(isPrime(i) === true) {
+  for(let i = 2; i <= maxPrimeValue; i++) {
+    if(isPrime(i)) {
       sum += i;
     }
-    i++;
   }
 
   function isPrime(n) {
-    //x is the largest value could be a prime number
+    // x is the largest value could be a prime number
     var x = Math.floor(Math.sqrt(n));
-
     while (x >= 2) {
       if (n % x === 0) {
         return false;
       }
-      x--;
+      --x;
     }
     return true;
   }
-
-  console.log(sum);
   return sum;
-}());
+};
+
+console.log(primesSum());
