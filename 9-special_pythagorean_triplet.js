@@ -7,7 +7,9 @@
 // Find the product abc.
 
 (function findPythagoreanTriplet() {
-  var a = 1, b = 2, c;
+  var a = 1;
+  var b = a + 1;
+  var c;
   while(a < 1000) {
     while(b < 1000 && b > a) {
       c = 1000 - a - b;
