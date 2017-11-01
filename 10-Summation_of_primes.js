@@ -4,9 +4,9 @@
 
 function primesSum() {
   const maxPrimeValue = 2e+6;
-  var sum = 0;
+  let sum = 0;
 
-  for(let i = 2; i <= maxPrimeValue; i++) {
+  for(let i = 2; i <= maxPrimeValue; ++i) {
     if(isPrime(i)) {
       sum += i;
     }
@@ -24,6 +24,6 @@ function primesSum() {
     return true;
   }
   return sum;
-};
+}
 
 console.log(primesSum());
