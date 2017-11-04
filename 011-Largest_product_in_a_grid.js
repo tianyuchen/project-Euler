@@ -52,12 +52,6 @@ const grid = [
 const nbAdjacent = 4;
 let max = 0;
 
-function compare(value) {
-  if (value > max) {
-    max = value;
-  }
-}
-
 function findMaxProduct() {
   for (let i = 0; i < grid.length; ++i) {
     for (let j = 0; j < grid.length; ++j) {
@@ -67,7 +61,7 @@ function findMaxProduct() {
        for (let m = 0; m < nbAdjacent; ++m) {
          verticalMax *= grid[i + m][j];
        }
-       compare(verticalMax);
+       max = Math.max(verticalMax, max);
      }
 
      // compare horizontal
@@ -76,7 +70,7 @@ function findMaxProduct() {
        for (let m = 0; m < nbAdjacent; ++m) {
          horizontalMax *= grid[i][j + m];
        }
-       compare(horizontalMax);
+       max = Math.max(horizontalMax, max);
      }
 
      // compare diagonal top-left to bottom-right
@@ -85,7 +79,7 @@ function findMaxProduct() {
        for (let m = 0; m < nbAdjacent; ++m) {
          diagonalMax *= grid[i + m][j + m];
        }
-       compare(diagonalMax);
+       max = Math.max(diagonalMax, max);
      }
 
      // compare diagonal top-right to bottom-left
@@ -94,7 +88,7 @@ function findMaxProduct() {
        for (let m = 0; m < nbAdjacent; ++m) {
          diagonalMax *= grid[i + m][j - m];
        }
-       compare(diagonalMax);
+       max = Math.max(diagonalMax, max);
      }
    }
  }
