@@ -104,8 +104,8 @@ const numbers = [
 
 let res = 0;
 for (let i = 0; i < numbers.length; ++i) {
-  res += Number(numbers[i].toString().substring(0,14));
+  res += Math.floor(numbers[i] / 10e37);
 }
-let stringRes = res.toString()
-stringRes = stringRes.replace(".", "")
-console.log(stringRes.substring(0,10))
+let stringRes = res.toString();
+stringRes = stringRes.replace(".", "");
+console.log(stringRes.substring(0,10));
