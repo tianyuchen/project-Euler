@@ -109,4 +109,4 @@ for (let i = 0; i < numbers.length; ++i) {
 
 var stringRes = res.toString()
 stringRes = stringRes.replace(".", "")
-console.log(stringRes.substring(0,11))
+console.log(stringRes.substring(0,10))
