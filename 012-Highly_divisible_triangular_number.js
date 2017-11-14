@@ -16,34 +16,30 @@
 // What is the value of the first triangle number to have over five hundred divisors?
 
 function triangleNum(n) {
-  let res = 1
-  for (let i = 2; i <= n; ++i) {
-    res += i
-  }
-  return res
+  return (n * (n + 1)) / 2;
 }
 
 function numFactors(n) {
-  let factorsCount = 0
-  const sqrtNum = Math.floor(Math.sqrt(n))
+  let factorsCount = 0;
+  let sqrtNum = Math.floor(Math.sqrt(n));
   for (let i = 1; i <= sqrtNum; ++i) {
     if (n % i == 0) {
-      factorsCount += 2
+      factorsCount += 2;
     }
   }
 
   if (Number.isInteger(Math.sqrt(n))) {
-    factorsCount -= 1
+    factorsCount -= 1;
   }
-  return factorsCount
+  return factorsCount;
 }
 
 function divisibleTriangularNumber() {
-  let i = 1
+  let i = 1;
   while (numFactors(triangleNum(i)) <= 500) {
-    ++i
+    ++i;
   }
-  return triangleNum(i)
+  return triangleNum(i);
 }
 
-console.log(divisibleTriangularNumber())
+console.log(divisibleTriangularNumber());
