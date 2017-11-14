@@ -102,11 +102,10 @@ const numbers = [
 53503534226472524250874054075591789781264330331690,
 ];
 
-var res = 0
+let res = 0;
 for (let i = 0; i < numbers.length; ++i) {
-  res += numbers[i]
+  res += Number(numbers[i].toString().substring(0,14));
 }
-
-var stringRes = res.toString()
+let stringRes = res.toString()
 stringRes = stringRes.replace(".", "")
 console.log(stringRes.substring(0,10))
