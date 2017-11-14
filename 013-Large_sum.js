@@ -104,8 +104,10 @@ const numbers = [
 
 let res = 0;
 for (let i = 0; i < numbers.length; ++i) {
+  // In order to avoid carry over problem, add first 13 digits of number
   res += Math.floor(numbers[i] / 10e37);
 }
-let stringRes = res.toString();
-stringRes = stringRes.replace(".", "");
-console.log(stringRes.substring(0,10));
+
+let digitNum = Math.ceil(Math.log10(res));
+// Get the first 10 digits of sum
+console.log(Math.floor(res / Math.pow(10, digitNum - 10)));
