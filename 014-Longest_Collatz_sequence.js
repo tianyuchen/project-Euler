@@ -16,13 +16,11 @@
 // NOTE: Once the chain starts the terms are allowed to go above one million.
 
 function sequence(n, collatzSequence) {
-  let count = 1;
+  let count = 0;
   while (n != 1) {
-    console.log(collatzSequence.get(n));
-    // if (collatzSequence.has(n)) {
-    //   return collatzSequence.get(n) + 1;
-    // } else
-    if (n % 2 == 0) {
+    if (collatzSequence.has(n)) {
+      return collatzSequence.get(n) + count;
+    } else if (n % 2 == 0) {
       n = n / 2;
     } else {
       n = 3 * n + 1;
@@ -37,13 +35,12 @@ function findStartNum() {
   let longestChain = 0;
   let collatzSequence = new Map();
 
-  for (let n = 1; n < 1000000; ++n) {
+  for (let n = 1; n < 1e6; ++n) {
     let nbTerms = sequence(n, collatzSequence);
     collatzSequence.set(n, nbTerms);
-    // console.log(collatzSequence);
 
     if (nbTerms > longestChain) {
-      longestChain = sequence(n);
+      longestChain = nbTerms;
       longestChainStartNumber = n;
     }
   }
