@@ -18,6 +18,7 @@
 function sequence(n, collatzSequence) {
   let count = 0;
   while (n != 1) {
+    // Test if it is already calculated nbTerms for n
     if (collatzSequence.has(n)) {
       return collatzSequence.get(n) + count;
     } else if (n % 2 == 0) {
