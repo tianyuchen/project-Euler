@@ -105,7 +105,7 @@ const numbers = [
 let res = 0;
 for (let i = 0; i < numbers.length; ++i) {
   // In order to avoid carry over problem, add first 13 digits of number
-  res += Math.floor(numbers[i] / 10e37);
+  res += Math.floor(numbers[i] / 1e37);
 }
 
 let digitNum = Math.ceil(Math.log10(res));
