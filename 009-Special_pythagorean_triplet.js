@@ -1,4 +1,5 @@
-// A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+// A Pythagorean triplet is a set of three natural numbers, a < b < c,
+// for which,
 //
 // a2 + b2 = c2
 // For example, 32 + 42 = 9 + 16 = 25 = 52.
@@ -7,11 +8,11 @@
 // Find the product abc.
 
 (function findPythagoreanTriplet() {
-  var a = 1;
-  var b = a + 1;
-  var c;
-  while(a < 1000) {
-    while(b < 1000 && b > a) {
+  let a = 1;
+  let b = a + 1;
+  let c;
+  while (a < 1000) {
+    while (b < 1000 && b > a) {
       c = 1000 - a - b;
       if (c < b) {
         break;
