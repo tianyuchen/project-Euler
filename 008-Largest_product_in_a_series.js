@@ -26,7 +26,7 @@
 // greatest product. What is the value of this product?
 
 (function maxProduct() {
-  var digit = '73167176531330624919225119674426574742355349194934' +
+  const digit = '73167176531330624919225119674426574742355349194934' +
               '96983520312774506326239578318016984801869478851843' +
               '85861560789112949495459501737958331952853208805511' +
               '12540698747158523863050715693290963295227443043557' +
@@ -47,12 +47,12 @@
               '05886116467109405077541002256983155200055935729725' +
               '71636269561882670428252483600823257530420752963450';
 
-  var maxProduct = 0;
-  var numberLength = 13;
-  var endPoint = digit.length - numberLength;
+  let maxProduct = 0;
+  let numberLength = 13;
+  let endPoint = digit.length - numberLength;
 
   for (let i = 0; i < endPoint; i++ ) {
-    var currentProduct = 1;
+    let currentProduct = 1;
     for (let j = 0; j < numberLength; j++) {
       currentProduct *= digit[i + j];
     }

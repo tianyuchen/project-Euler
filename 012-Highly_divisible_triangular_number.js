@@ -13,12 +13,23 @@
 //
 // We can see that 28 is the first triangle number to have over five divisors.
 //
-// What is the value of the first triangle number to have over five hundred divisors?
+// What is the value of the first triangle number to have over five hundred
+// divisors?
 
+/**
+ * Function to calculate triangle number
+ * @param {number} n th tiangle number
+ * @return {number}
+ */
 function triangleNum(n) {
   return (n * (n + 1)) / 2;
 }
 
+/**
+ * Function to calculate the number of factors
+ * @param {number} n
+ * @return {number} factors's number
+ */
 function numFactors(n) {
   let factorsCount = 0;
   let sqrtNum = Math.floor(Math.sqrt(n));
@@ -34,6 +45,10 @@ function numFactors(n) {
   return factorsCount;
 }
 
+/**
+ * Function to calculate the first triangle number to have over 500 divisors
+ * @return {number}
+ */
 function divisibleTriangularNumber() {
   let i = 1;
   while (numFactors(triangleNum(i)) <= 500) {

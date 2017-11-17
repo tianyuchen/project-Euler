@@ -3,9 +3,14 @@
 
 // In JavaScript, integer can't use more than 53 bits.
 
+/**
+ * Calculate the sum of exponential value's digits
+ * @param {number} exponent
+ * @return {number}
+ */
 function sumOfPowerDigits(exponent) {
   let sum = 0;
-  let res = [ 1 ];
+  let res = [1];
 
   for (let i = 0; i < exponent; ++i) {
     res = multiple2(res);
@@ -18,7 +23,12 @@ function sumOfPowerDigits(exponent) {
   return sum;
 }
 
-function multiple2(num) { // num is an array
+/**
+ * Calculate num multiple by two
+ * @param {Array<number>} num
+ * @return {Array<number>} result of multiplication
+ */
+function multiple2(num) {
   const len = num.length;
   let res = new Array(len);
   let carry = 0;
