@@ -25,8 +25,8 @@ function sumOfPowerDigits(exponent) {
 
 /**
  * Calculate num multiple by two
- * @param {Array} num
- * @return {Array} result of multiplication
+ * @param {Array<number>} num
+ * @return {Array<number>} result of multiplication
  */
 function multiple2(num) {
   const len = num.length;
@@ -36,7 +36,7 @@ function multiple2(num) {
   for (let i = 0; i < len; ++i) {
     let product = num[i] * 2 + carry;
     carry = Math.floor(product / 10);
-    res[i] = product - carry * 10;
+    res[i] = product % 10;
   }
 
   // If mutiple 2, overflow on the highest digit
