@@ -26,7 +26,7 @@ function multiple2(num) { // num is an array
   for (let i = 0; i < len; ++i) {
     let product = num[i] * 2 + carry;
     carry = Math.floor(product / 10);
-    res[i] = product - carry * 10;
+    res[i] = product % 10;
   }
 
   // If mutiple 2, overflow on the highest digit
