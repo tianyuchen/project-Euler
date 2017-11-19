@@ -25,8 +25,8 @@ function sumOfPowerDigits(exponent) {
 
 /**
  * Calculate num multiple by two
- * @param {Array<number>} num
- * @return {Array<number>} result of multiplication
+ * @param {Array.<number>} num
+ * @return {Array.<number>} result of multiplication
  */
 function multiple2(num) {
   const len = num.length;
