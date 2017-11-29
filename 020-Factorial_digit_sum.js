@@ -29,9 +29,10 @@ function factorial(n) {
  */
 function digitSum(n) {
   let sum = 0;
-  const num = factorial(n);
-  for (let i = 0; i < num.toString().length; ++i) {
-    sum += parseInt(num.toString()[i]);
+  let num = factorial(n);
+  while ( num != 0) {
+    sum += bigInt(num).divmod(10).remainder;
+    num = bigInt(num).divmod(10).quotient;
   }
   return sum;
 }
