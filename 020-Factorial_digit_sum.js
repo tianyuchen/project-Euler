@@ -23,18 +23,18 @@ function factorial(n) {
 }
 
 /**
- * Find the sum of the digits in factorial of n
- * @param {number} n
+ * Find the sum of the digits
+ * @param {number} num
  * @return {number}
  */
-function digitSum(n) {
+function digitSum(num) {
   let sum = 0;
-  let num = factorial(n);
   while ( num != 0) {
-    sum += bigInt(num).divmod(10).remainder;
-    num = bigInt(num).divmod(10).quotient;
+    const {quotient, remainder} = bigInt(num).divmod(10);
+    sum += remainder;
+    num = quotient;
   }
   return sum;
 }
 
-console.log(digitSum(100));
+console.log(digitSum(factorial(100)));
