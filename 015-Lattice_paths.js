@@ -3,6 +3,11 @@
 //
 // How many such routes are there through a 20×20 grid?
 
+/**
+ * Function to calculate number of routes through a grid
+ * @param {number} gridSize
+ * @return {number} number of routes
+ */
 function findLatticePaths(gridSize) {
   let paths = 1;
 
