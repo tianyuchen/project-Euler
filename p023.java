@@ -16,15 +16,22 @@
 // Find the sum of all the positive integers which cannot be written as the sum
 // of two abundant numbers.
 
-public class p023 {
+public class P023 {
     public static void main(String args[]) {
-        System.out.println(sum());
+        System.out.println(new P023().sum());
     }
 
-    private static int LIMIT = 28123;
+    static int LIMIT = 28123;
+    boolean[] isAbundant = new boolean[LIMIT];
 
-    private static int sum() {
+    int sum() {
         int sum = 0;
+        // Save the result of isAbundant() to the array isAbundant[], avoid
+        // recalculation of isAbundant
+        for (int i = 1; i < isAbundant.length; i++) {
+            isAbundant[i] = isAbundant(i);
+        }
+
         for (int i = 1; i < LIMIT; i++) {
             if (!isSumOf2Abundants(i)) {
                 sum += i;
@@ -33,16 +40,16 @@ public class p023 {
         return sum;
     }
 
-    private static boolean isSumOf2Abundants(int n) {
-        for (int i = 1; i < n; i++) {
-            if (isAbundant(i) && isAbundant(n - i)) {
+    boolean isSumOf2Abundants(int n) {
+        for (int i = 1; i <= n / 2; i++) {
+            if (isAbundant[i] && isAbundant[n - i]) {
                 return true;
             }
         }
         return false;
     }
 
-    private static boolean isAbundant(int n) {
+    boolean isAbundant(int n) {
         int sum = 1;
         int end = (int) Math.floor(Math.sqrt(n));
 
