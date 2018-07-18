@@ -12,13 +12,6 @@
 #
 # What is the total of all the name scores in the file?
 
-def positionInSortNames(name):
-    with open('022_names.txt') as f:
-        content = f.readlines()
-        for line in content:
-            names = line.replace('"', '').split(',')
-    return sorted(names).index(name) + 1
-
 def alphabeticalValue(name):
     value = 0
     for character in name.lower():
@@ -26,7 +19,16 @@ def alphabeticalValue(name):
         value += position
     return value
 
-def nameScore(name):
-    return positionInSortNames(name) * alphabeticalValue(name)
+def nameScore():
+    sum = 0
+    with open('022_names.txt') as f:
+        content = f.readlines()
+        for line in content:
+            names = line.replace('"', '').split(',')
+            names.sort()
+    for name in names:
+        sum += alphabeticalValue(name) * (names.index(name) + 1)
 
-print(nameScore("COLIN"))
+    return sum
+
+print(nameScore())
