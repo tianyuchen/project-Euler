@@ -20,10 +20,12 @@
 #
 # What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
 
-list_Fib = [1, 1]
-next_item = None
+import math
 
-while next_item is None or next_item/10 ** (1000 - 1) == 0:
+list_Fib = [1, 1]
+next_item = 2
+
+while math.log10(next_item) < 999:
     next_item = list_Fib[len(list_Fib)-2] + list_Fib[len(list_Fib)-1]
     list_Fib.append(next_item)
 print(len(list_Fib))
