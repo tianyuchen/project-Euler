@@ -19,10 +19,10 @@ def factorial(n):
 
 factorial(len(digits))   # 10! = 3628800
 factorial(len(digits) - 1)   # 9! = 362880, ex. when first digit is zero, there are 9! permutations
-
+0
 # 2 * 9! < 1000000 (th lexicographic permutation) < 3 * 9! so the first number is 2
 n = 9
-objective = 10 ** 6
+objective = 10 ** 6 - 1
 answer = ""
 
 while n > 0:
