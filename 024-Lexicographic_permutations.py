@@ -19,7 +19,6 @@ def factorial(n):
 
 factorial(len(digits))   # 10! = 3628800
 factorial(len(digits) - 1)   # 9! = 362880, ex. when first digit is zero, there are 9! permutations
-0
 # 2 * 9! < 1000000 (th lexicographic permutation) < 3 * 9! so the first number is 2
 n = 9
 objective = 10 ** 6 - 1
@@ -27,13 +26,13 @@ answer = ""
 
 while n > 0:
     tmp = divmod(objective, factorial(n))
-    # the next digit is the round number of objective divide by n!
+    # The next digit is the round number of objective divide by n!
     answer += str(digits[tmp[0]])
-    # the remainder becomes new objective
+    # The remainder becomes new objective
     objective = tmp[1]
     n -= 1
-    # delete used digit
+    # Delete used digit
     digits.remove(digits[tmp[0]])
-# add the last digit
+# Add the last digit
 answer += str(digits[0])
 print(answer)
