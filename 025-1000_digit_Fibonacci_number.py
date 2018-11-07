@@ -20,6 +20,8 @@
 #
 # What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
 
+
+# First solution
 import math
 
 list_Fib = [1, 1]
@@ -32,3 +34,15 @@ while math.log10(next_item) < 999:
     next_item = list_Fib[len(list_Fib)-2] + list_Fib[len(list_Fib)-1]
     list_Fib.append(next_item)
 print(len(list_Fib))
+
+
+# Seconde solution
+a = 1
+b = 1
+resultat = 2
+while len(str(b)) < 1000:
+    # This way to calculate Fibonacci sequence is more effective, without save entire
+    # Fibonacci sequence and without using intermediate number
+    a, b = b, a+b
+    resultat += 1
+print(resultat)
