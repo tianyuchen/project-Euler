@@ -39,10 +39,10 @@ print(len(list_Fib))
 # Seconde solution
 a = 1
 b = 1
-resultat = 2
-while len(str(b)) < 1000:
+count = 2
+while math.log10(b) < 999:
     # This way to calculate Fibonacci sequence is more effective, without save entire
     # Fibonacci sequence and without using intermediate number
-    a, b = b, a+b
-    resultat += 1
-print(resultat)
+    a, b = b, a + b
+    count += 1
+print(count)
