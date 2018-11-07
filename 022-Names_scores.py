@@ -15,6 +15,7 @@
 def alphabeticalValue(name):
     value = 0
     for character in name.lower():
+        # 96 == ord('a')
         position = ord(character) - 96
         value += position
     return value
@@ -26,9 +27,10 @@ def nameScore():
         for line in content:
             names = line.replace('"', '').split(',')
             names.sort()
+    i = 0
     for name in names:
-        sum += alphabeticalValue(name) * (names.index(name) + 1)
-
+        i += 1
+        sum += alphabeticalValue(name) * i
     return sum
 
 print(nameScore())
