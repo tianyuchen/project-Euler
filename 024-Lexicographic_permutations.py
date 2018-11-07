@@ -21,15 +21,13 @@ factorial(len(digits))   # 10! = 3628800
 factorial(len(digits) - 1)   # 9! = 362880, ex. when first digit is zero, there are 9! permutations
 # 2 * 9! < 1000000 (th lexicographic permutation) < 3 * 9! so the first number is 2
 n = 9
-objective = 10 ** 6 - 1
+remainder = 10 ** 6 - 1
 answer = ""
 
 while n > 0:
-    quotient, remainder = divmod(objective, factorial(n))
+    quotient, remainder = divmod(remainder, factorial(n))
     # The next digit is the round number of objective divide by n!
     answer += str(digits[quotient])
-    # The remainder becomes new objective
-    objective = remainder
     n -= 1
     # Delete used digit
     digits.remove(digits[quotient])
