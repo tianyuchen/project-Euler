@@ -24,7 +24,10 @@ import math
 
 list_Fib = [1, 1]
 next_item = 2
+index = 0
 
+# The 'result' of log10(number) can define 'number' contain ('result' + 1) digits
+# So when log10('next_item') = 999, next_item is the first number contains 1000 digits
 while math.log10(next_item) < 999:
     next_item = list_Fib[len(list_Fib)-2] + list_Fib[len(list_Fib)-1]
     list_Fib.append(next_item)
