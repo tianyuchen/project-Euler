@@ -25,14 +25,14 @@ objective = 10 ** 6 - 1
 answer = ""
 
 while n > 0:
-    tmp = divmod(objective, factorial(n))
+    quotient, remainder = divmod(objective, factorial(n))
     # The next digit is the round number of objective divide by n!
-    answer += str(digits[tmp[0]])
+    answer += str(digits[quotient])
     # The remainder becomes new objective
-    objective = tmp[1]
+    objective = remainder
     n -= 1
     # Delete used digit
-    digits.remove(digits[tmp[0]])
+    digits.remove(digits[quotient])
 # Add the last digit
 answer += str(digits[0])
 print(answer)
