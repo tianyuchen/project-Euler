@@ -25,7 +25,7 @@ def recurring_cycle_digits(n):
     recurring = False
     cycle_len = 0
 
-    while quotient not in digits or remainder != 0:
+    while quotient not in digits and remainder != 0:
         digits.append(quotient)
         quotient, remainder = divmod(10 * remainder, n)
 
@@ -36,6 +36,6 @@ def recurring_cycle_digits(n):
     return cycle_len
 
 results = []
-for i in range(2, 10):
+for i in range(2, 11):
     results.append(recurring_cycle_digits(i))
 print(results)
