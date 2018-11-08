@@ -27,14 +27,14 @@ def recurring_cycle_digits(n):
     while quotient not in digits and remainder != 0:
         digits.append(quotient)
         quotient, remainder = divmod(10 * remainder, n)
-        print(digits)
 
     if quotient in digits:
         digits.pop(0)
-        cycle_len = len(digits)
+        # '- digits.index(quotient)' for the case when repeating after a non-repeating part
+        cycle_len = len(digits) - digits.index(quotient)
     return cycle_len
 
 results = []
-for i in range(2, 7):
+for i in range(2, 11):
     results.append(recurring_cycle_digits(i))
 print(results)
