@@ -16,15 +16,18 @@
 # Find the value of d < 1000 for which 1/d contains the longest recurring cycle in
 # its decimal fraction part.
 
-# Terminating Fractions — The fractions that do not have a repeating cycle.
-# For eg, 1/2 = 0.5 , 1/4 = 0.25 , 1/5 = 0.2 etc.
-
-# Completely Repeating — The fractions where the entire decimal part is repeating.
-# like 1/3 = 1.(3), 1/7 = 1.(142857), 1/9 = 1.(1) etc
-
-# Repeating after a non-repeating part — where repetition starts in the decimal part
-# after a few non-repeating digits. For eg, 1/6 = .1(6) where ‘1’ is non-repeating.
 
 def recurring_cycle_digits(n):
-    res = 1/n
-    res - int(res)
+    digits = []
+    remainder = 1
+    # Zero is the number impossoble to become quotient
+    quotient = 0
+    while quotient not in digits:
+        digits.append(quotient)
+        quotient, remainder = divmod(10 * remainder, n)
+    digits.pop(0)
+    return len(digits)
+
+
+for i in range(2, 1000):
+    recurring_cycle_digits(i)
