@@ -22,20 +22,19 @@ def recurring_cycle_digits(n):
     remainder = 1
     # Zero is the number impossoble to become quotient
     quotient = 0
-    recurring = False
     cycle_len = 0
 
     while quotient not in digits and remainder != 0:
         digits.append(quotient)
         quotient, remainder = divmod(10 * remainder, n)
+        print(digits)
 
     if quotient in digits:
-        recurring = True
         digits.pop(0)
         cycle_len = len(digits)
     return cycle_len
 
 results = []
-for i in range(2, 11):
+for i in range(2, 7):
     results.append(recurring_cycle_digits(i))
 print(results)
