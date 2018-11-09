@@ -16,6 +16,7 @@
 # Find the value of d < 1000 for which 1/d contains the longest recurring cycle in
 # its decimal fraction part.
 
+import math
 
 def recurring_cycle_digits(n):
     digits = []
@@ -23,10 +24,11 @@ def recurring_cycle_digits(n):
     # Zero is the number impossoble to become quotient
     quotient = 0
     cycle_len = 0
+    digitLength = int(math.log10(n)) + 1
 
     while quotient not in digits and remainder != 0:
         digits.append(quotient)
-        quotient, remainder = divmod(10 * remainder, n)
+        quotient, remainder = divmod((10 ** digitLength) * remainder, n)
 
     if quotient in digits:
         digits.pop(0)
@@ -34,7 +36,10 @@ def recurring_cycle_digits(n):
         cycle_len = len(digits) - digits.index(quotient)
     return cycle_len
 
-results = []
-for i in range(2, 11):
-    results.append(recurring_cycle_digits(i))
-print(results)
+maxValue = 0
+for i in range(2, 1000):
+    if recurring_cycle_digits(i) > maxValue:
+        maxValue = recurring_cycle_digits(i)
+        maxIndex = i
+
+print(maxIndex)
