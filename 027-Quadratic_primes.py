@@ -33,15 +33,31 @@ def isPrime(num):
                 return False
     return True
 
-max = 0
-for a in range(-999, 1000):
-  for b in range(-999, 1000):
+def primeRange(n):
+  prime_lst = []
+  for i in range(2, n):
+    if isPrime(i):
+      prime_lst.append(i)
+  return prime_lst
+
+def testEquation(a, b):
     n = 0
-    num = b
-    while isPrime(num):
-      n += 1
-      num = n * n + a * n + b
+    while True:
+        num = n ** 2 + a * n + b
+        if isPrime(num): n += 1
+        else: break
+    return n
+
+# b has to be prime
+# The problem requires our n to start at 0, so our first result from a quadratic
+# equation would be 0 + 0 + b = b. So b has to be positive, prime and less than 1000 (for this problem) which helps reduce the search space significantly.
+max = 0
+prime_under_1000 = primeRange(1000)
+for a in range(-999, 1000):
+  for b in prime_under_1000:
+    n = testEquation(a, b)
     if n > max:
       max = n
-      maxTuple = (a, b)
-print(max, maxTuple)
+      max_a = a
+      max_b =b
+print(max_a * max_b)
