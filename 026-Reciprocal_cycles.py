@@ -23,7 +23,7 @@ def recurring_cycle_digits(n):
     remainder = 1
     # Zero is the number impossoble to become quotient
     quotient = 0
-    cycle_len = 0
+    cycleLength = 0
     digitLength = int(math.log10(n)) + 1
 
     while quotient not in digits and remainder != 0:
@@ -33,9 +33,10 @@ def recurring_cycle_digits(n):
     if quotient in digits:
         digits.pop(0)
         # '- digits.index(quotient)' for the case when repeating after a non-repeating part
-        cycle_len = len(digits) - digits.index(quotient)
-    return cycle_len
+        cycleLength = len(digits) - digits.index(quotient)
+    return cycleLength
 
+maxIndex = 0
 maxValue = 0
 for i in range(2, 1000):
     recurringCycleDigits = recurring_cycle_digits(i)
