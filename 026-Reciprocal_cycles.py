@@ -38,8 +38,9 @@ def recurring_cycle_digits(n):
 
 maxValue = 0
 for i in range(2, 1000):
-    if recurring_cycle_digits(i) > maxValue:
-        maxValue = recurring_cycle_digits(i)
+    recurringCycleDigits = recurring_cycle_digits(i)
+    if recurringCycleDigits > maxValue:
+        maxValue = recurringCycleDigits
         maxIndex = i
 
 print(maxIndex)
