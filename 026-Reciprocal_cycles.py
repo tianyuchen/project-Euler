@@ -23,25 +23,25 @@ def recurring_cycle_digits(n):
     remainder = 1
     # Zero is the number impossoble to become quotient
     quotient = 0
-    cycleLength = 0
-    digitLength = int(math.log10(n)) + 1
+    cycle_len = 0
+    digit_len = int(math.log10(n)) + 1
 
     while quotient not in digits and remainder != 0:
         digits.append(quotient)
-        quotient, remainder = divmod((10 ** digitLength) * remainder, n)
+        quotient, remainder = divmod((10 ** digit_len) * remainder, n)
 
     if quotient in digits:
         digits.pop(0)
         # '- digits.index(quotient)' for the case when repeating after a non-repeating part
-        cycleLength = len(digits) - digits.index(quotient)
-    return cycleLength
+        cycle_len = len(digits) - digits.index(quotient)
+    return cycle_len
 
-maxIndex = 0
-maxValue = 0
+max_index = 0
+max_value = 0
 for i in range(2, 1000):
-    recurringCycleDigits = recurring_cycle_digits(i)
-    if recurringCycleDigits > maxValue:
-        maxValue = recurringCycleDigits
-        maxIndex = i
+    recurring_digits = recurring_cycle_digits(i)
+    if recurring_digits > max_value:
+        max_value = recurring_digits
+        max_index = i
 
-print(maxIndex)
+print(max_index)
