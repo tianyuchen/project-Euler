@@ -14,4 +14,17 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 
 # To determine the upper bound, the fifth powers of the max single digit is 9 ^ 5 = 59049,
 # since it's a 5 digits number, so 5 * 9 ^ 5 = 295245,  with 5 digits we can make a 6 digit number.
-# 6*95 = 354294. So 355000 seems like a reasonable upper bound to use.
+# 6*95 = 354294.
+
+def sum_fifth_powers(num):
+    sum = 0
+    while num:
+        sum += (num % 10) ** 5
+        num /= 10
+    return sum
+
+res = 0
+for i in range(2, 354295):
+    if sum_fifth_powers(i) == i:
+        res += i
+print(res)
