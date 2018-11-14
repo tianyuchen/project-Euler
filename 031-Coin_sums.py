@@ -9,27 +9,25 @@ It is possible to make £2 in the following way:
 How many different ways can £2 be made using any number of coins?
 '''
 
-coin = [1, 2, 5, 10, 20, 50, 100, 200]
-objective = 200
+coins = [1, 2, 5, 10, 20, 50, 100, 200]
 ways = 0
+reste = 200
 
-for a in range(0, objective / 200 + 1):
-    objective -= a * 200
-    print(a, objective)
-
-    for b in range(0, objective / 100 + 1):
-        objective -= b * 100
-        for c in range(0, objective / 50 + 1):
-            objective -= c * 50
-            for d in range(0, objective / 20 + 1):
-                objective -= d * 20
-                for e in range(0, objective / 10 + 1):
-                    objective -= e * 10
-                    for f in range(0, objective / 5 + 1):
-                        objective -= f * 5
-                        for g in range(0, objective / 2 + 1):
-                            objective -= g * 2
-                            if objective >= 0:
-                                print(a, b, c, d, e, f, g)
-                                ways += 1
+for a in range(0, reste + 1, 200):
+    reste = 200 -a
+    for b in range(0, reste + 1, 100):
+        reste = 200 - a - b
+        for c in range(0, reste + 1, 50):
+             reste = 200 - a - b - c
+             for d in range(0, reste + 1, 20):
+                 reste = 200 - a - b - c - d
+                 for e in range(0, reste + 1, 10):
+                     reste = 200 - a - b - c - d - e
+                     for f in range(0, reste + 1, 5):
+                         reste = 200 - a - b - c - d - e - f
+                         for g in range(0, reste + 1, 2):
+                             h = 200 - a - b - c - d - e - f - g
+                             if h >= 0:
+                                 print(a, b, c, d, e, f, g, h)
+                                 ways += 1
 print(ways)
