@@ -9,7 +9,8 @@ It is possible to make £2 in the following way:
 How many different ways can £2 be made using any number of coins?
 '''
 
-coins = [1, 2, 5, 10, 20, 50, 100, 200]
+# Solution 1
+
 ways = 0
 reste = 200
 
@@ -28,6 +29,18 @@ for a in range(0, reste + 1, 200):
                          for g in range(0, reste + 1, 2):
                              h = 200 - a - b - c - d - e - f - g
                              if h >= 0:
-                                 print(a, b, c, d, e, f, g, h)
                                  ways += 1
 print(ways)
+
+
+# Solution 2: dynamic programming
+
+target = 200
+coins = [1, 2, 5, 10, 20, 50, 100, 200]
+ways = [1] + [0] * target
+
+for coin in coins:
+    for i in range(coin, target + 1):
+        ways[i] += ways[i - coin]
+
+print(ways[target])
