@@ -22,12 +22,11 @@ def is_pandigital(n):
 
 
 def sum_pandigital_products():
-    sum = 0
+    products = []
     for i in range(2, 100):
         for j in range(2, 10000):
             if is_pandigital(str(i) + str(j) + str(i * j)):
-                sum += i * j
-                print(i, j)
-    return sum
+                products.append(i * j)
+    return sum(list(set(products)))
 
 print(sum_pandigital_products())
