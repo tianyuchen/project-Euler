@@ -10,9 +10,24 @@ Find the sum of all products whose multiplicand/multiplier/product identity can 
 HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.
 '''
 
-# Cause we know the number should be from 1 to 9, 9 digits. So it must be
+# Cause we know the pandigital number should be from 1 to 9, 9 digits. So it must be
 # double-digit * three-digit = four-digit
 # one-digit * four-digit = four-digit
 
-def is_pandigital():
-    
+# And number 1 can't be the single digit of multiplicand/multiplier
+
+def is_pandigital(n):
+    n = str(n)
+    return len(n) == 9 and not '123456789'.strip(n)
+
+
+def sum_pandigital_products():
+    sum = 0
+    for i in range(2, 100):
+        for j in range(2, 10000):
+            if is_pandigital(str(i) + str(j) + str(i * j)):
+                sum += i * j
+                print(i, j)
+    return sum
+
+print(sum_pandigital_products())
