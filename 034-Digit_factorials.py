@@ -8,16 +8,15 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 '''
 
 def factorial(n):
-    if n == 1:
+    if n == 1 or n == 0:
         return n
     else:
         return n * factorial(n - 1)
 
 
-for num in range(3, 5):
+for num in range(3, 1000):
+    sum = 0
     for i in str(num):
-        sum = 0
-        print(i)
         sum += factorial(int(i))
-    # if num == sum:
-        print(sum)
+    if num == sum:
+        print(num)
