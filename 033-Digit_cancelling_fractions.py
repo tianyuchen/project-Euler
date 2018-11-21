@@ -16,4 +16,4 @@ the value of the denominator.
 # Four non-trivial cases：
 # 1.  ab/cb = a/c    2. ba/bc = a/c    3. ab/bc = a/c   4. ba/cb = a/c
 # Cause the fraction is less than one, a/c < 1. After simplification case 1 and
-# case 2 don't
+# case 2 => a = c, don't match  a < c.
