@@ -10,42 +10,60 @@ How many different ways can £2 be made using any number of coins?
 '''
 
 # Solution 1
+def solution1():
+    ways = 0
+    reste = 200
 
-ways = 0
-reste = 200
-
-for a in range(0, reste + 1, 200):
-    reste = 200 -a
-    for b in range(0, reste + 1, 100):
-        reste = 200 - a - b
-        for c in range(0, reste + 1, 50):
-             reste = 200 - a - b - c
-             for d in range(0, reste + 1, 20):
-                 reste = 200 - a - b - c - d
-                 for e in range(0, reste + 1, 10):
-                     reste = 200 - a - b - c - d - e
-                     for f in range(0, reste + 1, 5):
-                         reste = 200 - a - b - c - d - e - f
-                         for g in range(0, reste + 1, 2):
-                             h = 200 - a - b - c - d - e - f - g
-                             if h >= 0:
-                                 ways += 1
-print(ways)
+    for a in range(0, reste + 1, 200):
+        reste = 200 -a
+        for b in range(0, reste + 1, 100):
+            reste = 200 - a - b
+            for c in range(0, reste + 1, 50):
+                 reste = 200 - a - b - c
+                 for d in range(0, reste + 1, 20):
+                     reste = 200 - a - b - c - d
+                     for e in range(0, reste + 1, 10):
+                         reste = 200 - a - b - c - d - e
+                         for f in range(0, reste + 1, 5):
+                             reste = 200 - a - b - c - d - e - f
+                             for g in range(0, reste + 1, 2):
+                                 h = 200 - a - b - c - d - e - f - g
+                                 if h >= 0:
+                                     ways += 1
+    return ways
 
 
-# Solution 2: dynamic programming
-# for coin in coins:
-# ways[target] = ways[target-coin]
-# ways[1] = 1
-# ways[2] = 2
+
+# Solution 2: recursive
 # ex. coins = [1, 2, 5] ways[10] = ways[10 - 1] + ways[10 - 2] + ways[10 - 5]
+# def solution2():
+#     reste = 200
 
-target = 200
-coins = [1, 2, 5, 10, 20, 50, 100, 200]
-ways = [1] + [0] * target
+# ways(1) = 1
+# ways(2) = 2
+def way(reste):
+    ways = 0
+    coins = [1, 2, 5, 10, 20, 50, 100, 200]
+    if reste <= 0:
+        return 0
+    elif reste == 1:
+        return 1
+    for coin in coins:
+        print(coin)
+        ways += way(reste - coin)
+        # reste = reste - coin
+        return ways
 
-for coin in coins:
-    for i in range(coin, target + 1):
-        ways[i] += ways[i - coin]
+print(way(2))
 
-print(ways[target])
+
+# Solution 3: dynamic programming
+def solution3():
+    target = 200
+    coins = [1, 2, 5, 10, 20, 50, 100, 200]
+    ways = [1] + [0] * target
+
+    for coin in coins:
+        for i in range(coin, target + 1):
+            ways[i] += ways[i - coin]
+    return ways[target]
