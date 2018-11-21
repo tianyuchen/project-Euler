@@ -34,6 +34,11 @@ print(ways)
 
 
 # Solution 2: dynamic programming
+# for coin in coins:
+# ways[target] = ways[target-coin]
+# ways[1] = 1
+# ways[2] = 2
+# ex. coins = [1, 2, 5] ways[10] = ways[10 - 1] + ways[10 - 2] + ways[10 - 5]
 
 target = 200
 coins = [1, 2, 5, 10, 20, 50, 100, 200]
