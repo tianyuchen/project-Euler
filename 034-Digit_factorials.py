@@ -6,3 +6,18 @@ Find the sum of all numbers which are equal to the sum of the factorial of their
 
 Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 '''
+
+def factorial(n):
+    if n == 1:
+        return n
+    else:
+        return n * factorial(n - 1)
+
+
+for num in range(3, 5):
+    for i in str(num):
+        sum = 0
+        print(i)
+        sum += factorial(int(i))
+    # if num == sum:
+        print(sum)
