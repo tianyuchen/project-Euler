@@ -38,29 +38,26 @@ def solution1():
 # ex. coins = [1, 2, 5] ways[10] = ways[10 - 1] + ways[10 - 2] + ways[10 - 5]
 # def solution2():
 #     reste = 200
+coins = [1, 2, 5, 10, 20, 50, 100, 200]
 
-# ways(1) = 1
-# ways(2) = 2
-def way(reste):
-    ways = 0
-    coins = [1, 2, 5, 10, 20, 50, 100, 200]
-    if reste <= 0:
-        return 0
-    elif reste == 1:
+def way(rest, max_index):
+    # All 200p have been taken, counts a new way
+    if rest == 0:
         return 1
-    for coin in coins:
-        print(coin)
-        ways += way(reste - coin)
-        # reste = reste - coin
-        return ways
+    elif rest < 0:
+        return 0
 
-print(way(2))
+    total = 0
+    for i in range(max_index, -1, -1):
+        total += way(rest - coins[i], i)
+    return total
+
+print(way(200, len(coins) - 1))
 
 
 # Solution 3: dynamic programming
 def solution3():
     target = 200
-    coins = [1, 2, 5, 10, 20, 50, 100, 200]
     ways = [1] + [0] * target
 
     for coin in coins:
