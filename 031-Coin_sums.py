@@ -36,11 +36,10 @@ def solution1():
 
 # Solution 2: recursive
 # ex. coins = [1, 2, 5] ways[10] = ways[10 - 1] + ways[10 - 2] + ways[10 - 5]
-# def solution2():
-#     reste = 200
-coins = [1, 2, 5, 10, 20, 50, 100, 200]
 
-def way(rest, max_index):
+coins = [1, 2, 5, 10, 20, 50, 100, 200]
+# Can be optimised with cache with (key = "(rest-coins[i])_i", result)
+def solution2(rest, max_index):
     # All 200p have been taken, counts a new way
     if rest == 0:
         return 1
@@ -52,10 +51,17 @@ def way(rest, max_index):
         total += way(rest - coins[i], i)
     return total
 
-print(way(200, len(coins) - 1))
+print(solution2(200, len(coins) - 1))
 
 
 # Solution 3: dynamic programming
+# ways[200] = ways[200-1] + ways[200-2] + ways[200-5] + ways[200-10] + ...
+# ways[2] = ways[1] = 1
+# ways[3] = ways[2] + ways[1] = 2
+# ways[4] = ways[3] + ways[2] = 3
+# ways[5] = ways[4] + ways[3] = 5
+# ways[6] = ways[5] + ways[4] + ways[1] = 9
+
 def solution3():
     target = 200
     ways = [1] + [0] * target
