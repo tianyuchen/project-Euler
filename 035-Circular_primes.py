@@ -19,3 +19,22 @@ def is_prime(n):
     return True
 
 print(is_prime(18))
+
+def rotation(N):
+    # ex. N[i:] = [1, 9, 7], [9, 7], [7]  N[:i] = [], [1], [1, 9]
+    rot = []
+    for i in range(len(N)):
+        rot.append(N[i:] + N[:i])
+    for num in rot:
+        res = ''.join(str(num))
+        print(res)
+    # return [N[i:] + N[:i] for i in range(len(N))]
+    return res
+
+def circular_primes(n):
+    K = []
+    for i in str(n):
+        K.append(i)
+    return rotation(K)
+
+print(circular_primes(197))
