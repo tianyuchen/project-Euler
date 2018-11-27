@@ -43,7 +43,7 @@ def solution2(rest, max_index):
     # All 200p have been taken, counts a new way
     if rest == 0:
         return 1
-    elif rest < 0:
+    if rest < 0:
         return 0
 
     total = 0
