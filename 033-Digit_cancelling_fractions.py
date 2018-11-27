@@ -17,3 +17,10 @@ the value of the denominator.
 # 1.  ab/cb = a/c    2. ba/bc = a/c    3. ab/bc = a/c   4. ba/cb = a/c
 # Cause the fraction is less than one, a/c < 1. After simplification case 1 and
 # case 2 => a = c, don't match  a < c.
+
+d = 1
+for i in xrange(1, 10):
+    for j in xrange(1, i):
+        q, r = divmod(9*j*i, 10*j-i)
+        if not r and q <= 9:
+            d*= i/float(j)
