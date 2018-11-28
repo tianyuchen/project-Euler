@@ -14,13 +14,28 @@ the value of the denominator.
 '''
 
 # Four non-trivial cases：
-# 1.  ab/cb = a/c    2. ba/bc = a/c    3. ab/bc = a/c   4. ba/cb = a/c
+# 1.  ab/cb = a/c    2. ba/bc = a/c    3. ba/cb = a/c   4. ab/bc = a/c
 # Cause the fraction is less than one, a/c < 1. After simplification case 1 and
-# case 2 => a = c, don't match  a < c.
+# case 2 => a = c, don't match  a < c. equation 3 doen't have a solution as well.
+# So only fraction ab/bc = a/c left
 
-d = 1
-for i in xrange(1, 10):
-    for j in xrange(1, i):
-        q, r = divmod(9*j*i, 10*j-i)
-        if not r and q <= 9:
-            d*= i/float(j)
+# (10a + b) / (10b + c) = a / c
+# 10ac + bc = 10ab + ac
+# 9a * (c - b) = b * (a - c)
+# a < c < b <= 9
+
+from fractions import gcd
+
+prod_numerator = 1
+prod_denominator = 1
+for b in xrange(1, 10):
+    for c in xrange(1, b):
+        a, r = divmod(b * c, 10 * b - 9 * c)
+        if not r and a <= 9:
+            prod_numerator *= a
+            prod_denominator *= c
+
+# miinimalist denominator is the prod_denominator divise by its highest common factor
+prod_denominator /= gcd(prod_numerator, prod_denominator)
+
+print(prod_denominator)
