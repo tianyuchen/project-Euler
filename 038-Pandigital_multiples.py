@@ -17,10 +17,11 @@ concatenated product of an integer with (1,2, ... , n) where n > 1?
 
 def is_pandigital(n):
     n = str(n)
-    # strip will delete chars n from string
-    # when n is pandigital, '123456789'.strip(n) should be '' is considered to be False
+    # strip() will delete chars n from string
+    # When n is pandigital, '123456789'.strip(n) should be '' is considered to be False
     return len(n) == 9 and not '123456789'.strip(n)
 
-# max pandigital must begin with 9
+# Max pandigital must begin with 9 and it should be >= 918273645.
+# 
 for i in range(1, n):
     n * i
