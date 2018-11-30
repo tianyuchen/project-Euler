@@ -42,14 +42,7 @@ def rotation(n):
 def circular_primes(n):
     total = 0
     for i in range(2, 10 ** n):
-        for num in rotation(i):
-            if(is_prime(num)):
-                circular_prime = True
-            else:
-                circular_prime = False
-                break
-
-        if circular_prime:
+        if all([is_prime(num) for num in rotation(i)]):
             total += 1
     return total
 
