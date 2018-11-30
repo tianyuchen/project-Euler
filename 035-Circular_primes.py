@@ -21,22 +21,22 @@ def is_prime(n):
 
 
 def rotation(n):
-    N = []
-    rot = []
-    res = []
+    list = []
+    separate_rotations = []
+    rotations = []
     # from number to list
     for i in str(n):
-        N.append(i)
+        list.append(i)
 
     # all rotations of number of separate digits
-    for i in range(len(N)):
+    for i in range(len(list)):
         # ex. N[i:] = [1, 9, 7], [9, 7], [7]  N[:i] = [], [1], [1, 9]
-        rot.append(N[i:] + N[:i])
+        separate_rotations.append(list[i:] + list[:i])
 
     # join separate digits to number
-    for num in rot:
-        res.append(int(''.join(str(digit) for digit in num)))
-    return res
+    for num in separate_rotations:
+        rotations.append(int(''.join(digit for digit in num)))
+    return rotations
 
 
 def circular_primes(n):
@@ -48,7 +48,7 @@ def circular_primes(n):
             else:
                 circular_prime = False
                 break
-                
+
         if circular_prime:
             total += 1
     return total
