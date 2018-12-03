@@ -22,6 +22,17 @@ def is_pandigital(n):
     return len(n) == 9 and not '123456789'.strip(n)
 
 # Max pandigital must begin with 9 and it should be >= 918273645.
-# 
-for i in range(1, n):
-    n * i
+# 92 ~ 98 don't satisfaited the condition because when it multiplied by (2, 3, 4),
+# they can’t make a 9-digit concatenated product. (2+3+3+3...)
+# 921 ~ 987 multiplied by (2, 3, 4) can’t make a 9-digit concatenated product.  (3+4+4+...)
+# 9213 ~ 9876 multiplied by (2, 3, 4) can make a 9-digit concatenated product.  (4+5)
+# other combinations will create too many digits.
+
+max = 918273645
+
+for i in range(9213, 9876):
+    num = str(i) + (str(i * 2))
+    if is_pandigital(num):
+        if max < num:
+            max = num
+print max
