@@ -28,7 +28,7 @@ def is_truncatable_prime(n):
 
 sum = 0
 nb_primes = 0
-truncatable_prime = None
+
 for n in range(9, 10 ** 6, 2):
     if is_truncatable_prime(n):
         nb_primes += 1
