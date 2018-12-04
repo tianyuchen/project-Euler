@@ -19,19 +19,18 @@ def is_prime(n):
             return False
     return True
 
+def is_truncatable_prime(n):
+    for i in range(0, len(str(n))):
+        # Test if n is prime both truncatable from left to right and right to left
+        if not is_prime(int(str(n)[i : ])) or not is_prime(int(str(n)[: i + 1])):
+            return False
+    return True
 
 sum = 0
 nb_primes = 0
 truncatable_prime = None
 for n in range(9, 10 ** 6, 2):
-    for i in range(0, len(str(n))):
-        # Test if n is prime both truncatable from left to right and right to left
-        if not is_prime(int(str(n)[i : ])) or not is_prime(int(str(n)[: i + 1])):
-            truncatable_prime = False
-            break
-        truncatable_prime = True
-
-    if truncatable_prime == True:
+    if is_truncatable_prime(n):
         nb_primes += 1
         sum += n
     # when we have first eleven primes, stop the program
