@@ -28,10 +28,9 @@ def is_pandigital(n):
 # 9213 ~ 9876 multiplied by (2, 3, 4) can make a 9-digit concatenated product.  (4+5)
 # other combinations will create too many digits.
 
-max = 918273645
 
 for i in range(9213, 9877):
     num = str(i) + (str(i * 2))
-    if is_pandigital(num) and num > max:
+    if is_pandigital(num):
         max = num
 print max
