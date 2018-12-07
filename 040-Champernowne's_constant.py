@@ -24,7 +24,7 @@ d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
 # d100 = (100 - 9) / 2 =  45.5 --> first digit of (9 + 46)th number = 5
 # d1000 = (1000 - 9 - 180) / 3 = 270 ... 1 --> first digit of (99 + 271)th number = 3
 
-digits = [(x + 1) * 9 * pow(10, x) for x in range(0, 20)]
+digits = [(x + 1) * 9 * pow(10, x) for x in range(0, 6)]
 
 def d(n):
     i = 0
@@ -34,7 +34,7 @@ def d(n):
         n -= digits[i]
         i += 1
     quotient, remainder = divmod(n , i + 1)
-    return int(str(pow(10, i) + quotient)[remainder-1])
+    return int(str(pow(10, i) + quotient)[remainder - 1])
 
 produit = 1
 for i in range(0, 7):
