@@ -30,9 +30,8 @@ def is_pandigital(n):
 
 max = 918273645
 
-for i in range(9213, 9876):
+for i in range(9213, 9877):
     num = str(i) + (str(i * 2))
-    if is_pandigital(num):
-        if max < num:
-            max = num
+    if is_pandigital(num) and num > max:
+        max = num
 print max
