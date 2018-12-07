@@ -29,8 +29,6 @@ def is_pandigital(n):
 # other combinations will create too many digits.
 
 
-for i in range(9213, 9877):
-    num = str(i) + (str(i * 2))
-    if is_pandigital(num):
-        max = num
-print max
+list = [str(i) + str(i * 2) for i in range(9213, 9877) if is_pandigital(str(i) + str(i * 2))]
+
+print list[-1]
