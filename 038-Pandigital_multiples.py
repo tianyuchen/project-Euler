@@ -30,5 +30,5 @@ def is_pandigital(n):
 
 
 list = [str(i) + str(i * 2) for i in range(9213, 9877) if is_pandigital(str(i) + str(i * 2))]
-
 print list[-1]
+# print([i * 10 ** 5 + 2 * i for i in range(9213, 9877) if is_pandigital(i * 10 ** 5 + 2 * i)][-1])
