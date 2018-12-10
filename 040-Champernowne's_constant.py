@@ -18,13 +18,13 @@ d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
 # 1000 ~ 9999   4 * 9000 = 36000 digits
 # 10000 ~ 99999 5 * 90000 = 450000 digits
 
+digits = [(x + 1) * 9 * pow(10, x) for x in range(0, 6)]
+
 
 # d1 = 1
 # d10 = (10 - 9) / 2 = 0.5 --> first digit of (9 + 1)th number = 1
 # d100 = (100 - 9) / 2 =  45.5 --> first digit of (9 + 46)th number = 5
 # d1000 = (1000 - 9 - 180) / 3 = 270 ... 1 --> first digit of (99 + 271)th number = 3
-
-digits = [(x + 1) * 9 * pow(10, x) for x in range(0, 6)]
 
 def d(n):
     i = 0
