@@ -28,10 +28,19 @@ def is_prime(n):
             return False
     return True
 
+# An integer is divisible by 3 whose sum of digits is divisible by 3 and therefore composite and not prime.
+#
+# 9+8+7+6+5+4+3+2+1+0 = 45, 45/3 = 15
+# 9+8+7+6+5+4+3+2+1 = 45, 45/3 = 15
+# 8+7+6+5+4+3+2+1 = 36, 36/3 = 12
+# 7+6+5+4+3+2+1 = 28, 28/3 = 9.333…
+
+# So the largest pandigital prime should be an 7-digit number
+
 def largest_pandigital_prime():
-    for i in range(9, 0, -1):
-        for num in pandigital_numbers(i):
-            if is_prime(num):
-                return num
+    # for i in range(9, 0, -1):
+    for num in pandigital_numbers(7):
+        if is_prime(num):
+            return num
 
 print(largest_pandigital_prime())
