@@ -6,21 +6,22 @@ We shall say that an n-digit number is  if it makes use of all the digits
 What is the largest n-digit pandigital prime that exists?
 '''
 import itertools
+import time
 
 def pandigital_numbers(n):
     # Generate list of number 1 to n.  ex: '1234'
-    list_num = ''.join([str(i) for i in range(1, n + 1)])
+    # list_num = ''.join([str(i) for i in range(1, n + 1)])
 
     # List all pandigital numbers of digits 1 to n
-    pandigital_num = [int(''.join(item)) for item in itertools.permutations(list_num)]
+    pandigital_num = [int(''.join(item)) for item in itertools.permutations(range(1, n + 1)) if int(item[-1]) % 2 != 0]
     pandigital_num.sort(reverse=True)
     return pandigital_num
 
 def is_prime(n):
-    if n == 2:
-        return True
-    if n % 2 == 0 or n < 2:
-        return False
+    # if n == 2:
+    #     return True
+    # if n % 2 == 0 or n < 2:
+    #     return False
     for i in range(3, int(n ** 0.5) + 1, 2):
         if n % i == 0:
             return False
@@ -41,4 +42,9 @@ def largest_pandigital_prime():
         if is_prime(num):
             return num
 
-print(largest_pandigital_prime())
+start = time.time()
+max = largest_pandigital_prime()
+elapsed_time = time.time() - start
+
+print "Found %d in %r s." % (max, elapsed_time)
+# print(largest_pandigital_prime())
