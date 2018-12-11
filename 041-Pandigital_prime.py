@@ -12,9 +12,7 @@ def pandigital_numbers(n):
     list_num = ''.join([str(i) for i in range(1, n + 1)])
 
     # List all pandigital numbers of digits 1 to n
-    pandigital_str = [''.join(item) for item in itertools.permutations(list_num)]
-    # transfer pendigital number from string to int
-    pandigital_num = [int(num) for num in pandigital_str]
+    pandigital_num = [int(''.join(item)) for item in itertools.permutations(list_num)]
     pandigital_num.sort(reverse=True)
     return pandigital_num
 
