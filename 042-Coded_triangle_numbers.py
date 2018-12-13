@@ -17,9 +17,27 @@ containing nearly two-thousand common English words, how many are triangle words
 # x = ½n(n+1) -> in order to test if a number is triangle number, we need to verify
 # n is a integer
 # 8 * x + 1 = (2 * n + 1) ** 2
+
 def is_triangle(x):
     if ((8 * x + 1) ** 0.5 - 1) % 2 == 0:
-         return True
+        return True
     return False
 
-print(is_triangle(55))
+
+def word_alphabetical_value(word):
+    value = 0
+    for character in word.lower():
+        # 96 == ord('a')
+        position = ord(character) - 96
+        value += position
+    return value
+
+
+def sum_triangle_words():
+    sum = 0
+    for word in open('042_words.txt').read().replace('"', '').split(','):
+        if is_triangle(word_alphabetical_value(word)):
+            sum += 1
+    return sum
+
+print(sum_triangle_words())
