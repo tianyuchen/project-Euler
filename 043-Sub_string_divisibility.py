@@ -17,6 +17,8 @@ d8d9d10=289 is divisible by 17
 Find the sum of all 0 to 9 pandigital numbers with this property.
 '''
 
+import itertools
+
 primes = [2, 3, 5, 7, 11, 13, 17]
 
 
@@ -26,4 +28,14 @@ def is_sub_string_divisible(n):
             return False
     return True
 
-print(is_sub_string_divisible(1406357289))
+
+def sum_of_divisible_pandigital_numbers():
+    sum = 0
+    pandigital_nums = [int(''.join(item)) for item in itertools.permutations("0123456789")]
+    for num in pandigital_nums:
+        if is_sub_string_divisible(num):
+            sum += num
+    return sum
+
+
+print(sum_of_divisible_pandigital_numbers())
