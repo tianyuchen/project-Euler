@@ -12,12 +12,23 @@ Find the pair of pentagonal numbers, Pj and Pk, for which their sum and
 difference are pentagonal and D = |Pk − Pj| is minimised; what is the value of D?
 '''
 
-# s is the sum Pk + Pj => s-Pj is Pk
-# D is s-2*Pj which is simplified from (s-Pj)-Pj
 
 def pentagonal_numbers():
     # set can't contain duplicates, is unordered
     pentagonal_nums = set()
+    n = 1
 
-    n += 1
-    Pn = (3 * n ** 2 - n) / 2
+    while True:
+        n += 1
+        # their sum is pentagonal
+        sum = (3 * n ** 2 - n) / 2
+
+        for Pj in pentagonal_nums:
+            # sum = Pk + Pj => Pk = sum - Pj
+            # D = (sum - Pj) - Pj = sum - 2 * Pj
+            if sum - Pj in pentagonal_nums and sum - 2 * Pj in pentagonal_nums:
+                return sum - 2 * Pj
+        pentagonal_nums.add(sum)
+
+
+print(pentagonal_numbers())
