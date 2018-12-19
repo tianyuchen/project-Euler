@@ -12,4 +12,18 @@ Find the next triangle number that is also pentagonal and hexagonal.
 # Hexagonal numbers are a subset of Triangle number
 # n = 2m – 1 Tn = (2m -1)((2m-1) 1)/2 = (2m-1)2m/2 = m(2m-1)
 
-# When Pn = Hn => n(3n-1)/2 = m(2m−1) => 
+from math import sqrt
+
+def is_pentagonal(n):
+    num = (sqrt(24 * n + 1) + 1) / 6
+    return num.is_integer()
+
+# The first triangle, pentagonal, and hexagonal number is H143 = 40755.
+i = 143
+
+while True:
+    i += 1
+    n = i * (2 * i - 1)
+    if(is_pentagonal(n)):
+        print(n)
+        break;
