@@ -34,10 +34,10 @@ def word_alphabetical_value(word):
 
 
 def sum_triangle_words():
-    sum = 0
+    total = 0
     for word in open('042_words.txt').read().replace('"', '').split(','):
         if is_triangle(word_alphabetical_value(word)):
-            sum += 1
-    return sum
+            total += 1
+    return total
 
 print(sum_triangle_words())
