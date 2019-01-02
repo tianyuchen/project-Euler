@@ -21,14 +21,14 @@ def pentagonal_numbers():
     while True:
         n += 1
         # their sum is pentagonal
-        sum = (3 * n ** 2 - n) / 2
+        total = (3 * n ** 2 - n) / 2
 
         for Pj in pentagonal_nums:
             # sum = Pk + Pj => Pk = sum - Pj
             # D = (sum - Pj) - Pj = sum - 2 * Pj
-            if sum - Pj in pentagonal_nums and sum - 2 * Pj in pentagonal_nums:
-                return sum - 2 * Pj
-        pentagonal_nums.add(sum)
+            if total - Pj in pentagonal_nums and sum - 2 * Pj in pentagonal_nums:
+                return total - 2 * Pj
+        pentagonal_nums.add(total)
 
 
 print(pentagonal_numbers())
