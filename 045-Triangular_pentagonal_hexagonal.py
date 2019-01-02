@@ -26,4 +26,4 @@ while True:
     n = i * (2 * i - 1)
     if(is_pentagonal(n)):
         print(n)
-        break;
+        break
